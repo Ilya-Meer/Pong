@@ -7,7 +7,7 @@ export default class Paddle {
     this.height = height;
     this.x = x;
     this.y = y;
-    this.speed = 30;
+    this.speed = 10;
     this.score = 0;
 
     document.addEventListener('keydown', event => {
@@ -21,6 +21,16 @@ export default class Paddle {
       }
   });
 } 
+
+coordinates(x, y, width, height) {
+  let leftX = x;
+  let rightX = x + width;
+  let topY = y;
+  let bottomY = y + height;
+  return {leftX, rightX, topY, bottomY};
+}
+
+
 
   up() {
     // GET SOME MAX NUMBER , either 0 or the y position minus speed
@@ -42,6 +52,8 @@ export default class Paddle {
     paddle.setAttributeNS(null, 'speed', this.speed);
     paddle.setAttributeNS(null, 'score', this.score);
     paddle.setAttributeNS(null, 'fill', 'white');
+    paddle.setAttributeNS(null, 'rx', '5');
+    paddle.setAttributeNS(null, 'ry', '5');
     svg.appendChild(paddle);
 
   }
