@@ -15,9 +15,12 @@ export default class Game {
 		this.boardGap = 10;
 		this.paddleWidth = 8;
 		this.paddleHeight = 56;
-
 		
-		this.ball = new Ball(10, this.width, this.height);
+
+
+
+
+		this.ball = new Ball(8, this.width, this.height);
 		
 		
 		
@@ -44,9 +47,19 @@ export default class Game {
 			KEYS.down
 		);
 		
-	}
+	
+
+	document.addEventListener('keydown', event => {
+		if (event.key === KEYS.spaceBar) {
+			this.pause = !this.pause;
+		}
+	});
+}
 
 	render() {
+		if(this.pause) {
+			return;
+		}
  
 		this.gameElement.innerHTML = '';
 
