@@ -3,7 +3,6 @@ import Board from './Board';
 import Paddle from './Paddle';
 import Ball from './Ball';
 import Score from './Score';
-import Message from './Message';
 
 export default class Game {
 
@@ -45,9 +44,6 @@ export default class Game {
 			KEYS.down
 		);
 
-		//Instantiate Victory Message
-		this.message = new Message(130, 100, 40);
-
 		// Instantiate Scoreboard for each Player
 		this.score1 = new Score(128, 30, 40);
 		this.score2 = new Score(350, 30, 40);
@@ -59,18 +55,15 @@ export default class Game {
 		});
 	}
 
-
+		// Restart Function for Game End
 	restart() {
-			this.board = new Board(this.width, this.height);
+		this.board = new Board(this.width, this.height);
 		this.boardGap = 10;
 		this.paddleWidth = 8;
 		this.paddleHeight = 56;
 
-		// Instantiate Ball
 		this.ball = new Ball(8, this.width, this.height, this);
 
-
-		// Instantiate Paddle 1
 		this.paddle1 = new Paddle(
 			this.height,
 			this.paddleWidth,
@@ -81,7 +74,6 @@ export default class Game {
 			KEYS.z
 		);
 
-		//Instantiate Paddle 2
 		this.paddle2 = new Paddle(
 			this.height,
 			this.paddleWidth,
@@ -92,16 +84,17 @@ export default class Game {
 			KEYS.down
 		);
 
-		//Instantiate Victory Message
-		this.message = new Message(130, 100, 40);
-
-		// Instantiate Scoreboard for each Player
 		this.score1 = new Score(128, 30, 40);
 		this.score2 = new Score(350, 30, 40);
 
+		const gameMessage = document.querySelector('.game-wrapper');		
+		gameMessage.innerHTML += '<h2 class="gameMessage">Game Over!!!!!</h2>';
+		gameMessage.innerHTML += '<a class="restart" href="index.html">Restart</a>';
 	}
+	// End Restart
 
-	// Render Game
+
+	// Pause the Game
 	render() {
 		if (this.pause) {
 			return;
@@ -119,13 +112,13 @@ export default class Game {
 		this.gameElement.appendChild(svg);
 
 	// Render Gameplay Elements
+		
 		this.board.render(svg);
 		this.paddle1.render(svg);
 		this.paddle2.render(svg);
 		this.ball.render(svg, this.paddle1, this.paddle2);
 		this.score1.render(svg, this.paddle1.score);
 		this.score2.render(svg, this.paddle2.score);
-		this.message.render(svg);
 	}
 
 }

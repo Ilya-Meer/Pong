@@ -7,6 +7,5 @@ const game = new Game('game', 512, 256);
 // Align Game rendering with Browser Refresh Rate
 (function gameLoop() {
     game.render();
-    // requestAnimationFrame(gameLoop);
-
+    requestAnimationFrame(gameLoop);
 })();

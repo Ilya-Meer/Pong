@@ -90,9 +90,6 @@ export default class Ball {
   goal(paddle) {
     if (paddle.score >= 5) {
       this.game.restart();
-
-      
-      
     } else {
     paddle.score++;
     this.reset();

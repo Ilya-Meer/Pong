@@ -102,4 +102,20 @@ h1 {
   color: whitesmoke;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
+
+.gameMessage {
+  color: whitesmoke;
+  position:absolute;
+  bottom: 50%;
+  font-size: 4rem;
+}
+
+.restart {
+  color: whitesmoke;
+  position:absolute;
+  bottom: 40%;
+  font-size: 3rem;
+}
+
+
  
