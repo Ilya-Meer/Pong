@@ -6,7 +6,7 @@ export default class Score {
     this.y = y;
     this.size = size;
   }
-  
+    // Render Scoreboard
   render(svg, score) {
     let text = document.createElementNS(SVG_NS,'text');
     text.setAttributeNS(null, 'x', this.x);
@@ -15,6 +15,7 @@ export default class Score {
     text.setAttributeNS(null, 'font-family', 'Silkscreen Web' );
     text.setAttributeNS(null, 'fill', 'white');
 
+      // Pass Score as Text to Scoreboard Elements
     text.textContent = score;
     svg.appendChild(text);
   }

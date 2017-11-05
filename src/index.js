@@ -1,11 +1,12 @@
 import './styles/game.css';
 import Game from './partials/Game'
 
-// create a game instance
+// Create a Game Instance
 const game = new Game('game', 512, 256);
 
+// Align Game rendering with Browser Refresh Rate
 (function gameLoop() {
     game.render();
-    requestAnimationFrame(gameLoop);
-    
+    // requestAnimationFrame(gameLoop);
+
 })();
