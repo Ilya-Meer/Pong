@@ -1,11 +1,12 @@
 import {SVG_NS } from '../settings';
 export default class Ball {
   
-  constructor(radius, boardWidth, boardHeight, game) {
+  constructor(radius, boardWidth, boardHeight, game, startingDirection) {
     this.radius = radius;
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
     this.direction = 1;
+    this.startingDirection = startingDirection;
     this.reset();
     this.game = game;
     this.ping = new Audio('public/sounds/pong-01.wav');
@@ -20,7 +21,7 @@ export default class Ball {
     // Determine Vectors for Ball Path
       this.vy = 0
       while(this.vy === 0) {
-        this.vy =  Math.floor(Math.random() * 10 - 5); 
+        this.vy =  Math.floor(Math.random() * (10 - 5) * this.startingDirection); 
       }   
       this.vx = this.direction * (6 - Math.abs(this.vy));
   }
@@ -95,6 +96,7 @@ export default class Ball {
     this.reset();
     }
   }
+
   
     // Render Ball
   render(svg, paddle1, paddle2) {

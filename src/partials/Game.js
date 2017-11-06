@@ -19,11 +19,14 @@ export default class Game {
 		this.paddleWidth = 8;
 		this.paddleHeight = 56;
 
-		// Instantiate Ball
-		this.ball = new Ball(8, this.width, this.height, this);
+		// Instantiate a Ball
+		this.ball1 = new Ball(20, this.width, this.height, this, 1);
+
+		// Instantiate another Ball
+		this.ball2 = new Ball(8, this.width, this.height, this, -1);
 
 		// Instantiate Paddle 1
-			this.paddle1 = new Paddle(
+		this.paddle1 = new Paddle(
 			this.height,
 			this.paddleWidth,
 			this.paddleHeight,
@@ -55,7 +58,7 @@ export default class Game {
 		});
 	}
 
-		// Restart Function for Game End
+	// Restart Function for Game End
 	restart() {
 		this.board = new Board(this.width, this.height);
 		this.boardGap = 10;
@@ -87,7 +90,7 @@ export default class Game {
 		this.score1 = new Score(128, 30, 40);
 		this.score2 = new Score(350, 30, 40);
 
-		const gameMessage = document.querySelector('.game-wrapper');		
+		const gameMessage = document.querySelector('.game-wrapper');
 		gameMessage.innerHTML += '<h2 class="gameMessage">Game Over!!!!!</h2>';
 		gameMessage.innerHTML += '<a class="restart" href="index.html">Restart</a>';
 	}
@@ -100,10 +103,10 @@ export default class Game {
 			return;
 		}
 
-	// Clear Canvas when Browser refreshes
+		// Clear Canvas when Browser refreshes
 		this.gameElement.innerHTML = '';
 
-	// Render SVG Field
+		// Render SVG Field
 		let svg = document.createElementNS(SVG_NS, 'svg');
 		svg.setAttributeNS(null, 'width', this.width);
 		svg.setAttributeNS(null, 'height', this.height);
@@ -111,12 +114,13 @@ export default class Game {
 		svg.setAttributeNS(null, 'version', '1.1');
 		this.gameElement.appendChild(svg);
 
-	// Render Gameplay Elements
-		
+		// Render Gameplay Elements
+
 		this.board.render(svg);
 		this.paddle1.render(svg);
 		this.paddle2.render(svg);
-		this.ball.render(svg, this.paddle1, this.paddle2);
+		this.ball1.render(svg, this.paddle1, this.paddle2);
+		this.ball2.render(svg, this.paddle1, this.paddle2);
 		this.score1.render(svg, this.paddle1.score);
 		this.score2.render(svg, this.paddle2.score);
 	}

@@ -92,29 +92,37 @@ body {
   height: 100vh;
   justify-content: center;
   width: 100%;
-  background: #353535;
+  background: url('/public/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 2rem; 
   text-align: center;
-  color: whitesmoke;
+  color: darkred;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 8px 23px rgba(0, 0, 0, 0.1);
 }
 
 .gameMessage {
-  color: whitesmoke;
-  position:absolute;
-  bottom: 50%;
+  color: #9F2901;
+  display: block;
+  text-align: center;
   font-size: 4rem;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 8px 23px rgba(0, 0, 0, 0.1);
 }
 
 .restart {
-  color: whitesmoke;
-  position:absolute;
-  bottom: 40%;
-  font-size: 3rem;
+  color: blue;
+  text-align: center;
+  display: block;
+  font-size: 4rem;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 8px 23px rgba(0, 0, 0, 0.1);
+  
 }
 
 
