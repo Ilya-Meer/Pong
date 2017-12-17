@@ -7,13 +7,14 @@ export default class Ball {
     this.boardHeight = boardHeight;
     this.direction = 1;
     this.startingDirection = startingDirection;
-    this.reset();
     this.game = game;
     this.ping = new Audio('public/sounds/pong-01.wav');
+
+    this.reset();
   }
   
   // Put Ball back in the Center
-  reset() {
+  reset() { 
     this.x = this.boardWidth / 2;
     this.y = this.boardHeight / 2;  
       
@@ -89,11 +90,11 @@ export default class Ball {
   
     // Define a Score Event
   goal(paddle) {
-    if (paddle.score >= 5) {
-      this.game.restart();
+    if (paddle.score >= 11) {
+      return
     } else {
-    paddle.score++;
-    this.reset();
+      paddle.score++;
+      this.reset();
     }
   }
 
