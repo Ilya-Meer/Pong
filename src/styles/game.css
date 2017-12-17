@@ -107,15 +107,6 @@ h1 {
   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 8px 23px rgba(0, 0, 0, 0.1);
 }
 
-.gameMessage {
-  color: #9F2901;
-  display: block;
-  text-align: center;
-  font-size: 4rem;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 8px 23px rgba(0, 0, 0, 0.1);
-}
-
 .instructions {
   display: grid;
   grid-template-columns: 1fr 1fr;
