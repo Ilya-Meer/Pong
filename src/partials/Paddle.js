@@ -9,18 +9,31 @@ export default class Paddle {
     this.y = y;
     this.speed = 10;
     this.score = 0;
+    this.upMove = false;
+		this.downMove = false;
 
     document.addEventListener('keydown', event => {
       switch (event.key) {
         case up:
-          this.up();
+        this.upMove = true;
           break;
         case down:
-          this.down();
+        this.downMove = true;
           break;
       }
     });
-  }
+
+    document.addEventListener('keyup', event => {
+			switch(event.key) {
+				case up:
+					this.upMove = false;
+					break;
+				case down:
+					this.downMove = false;
+					break;
+			}
+		});
+	}
 
   coordinates(x, y, width, height) {
     let leftX = x;
@@ -42,13 +55,18 @@ export default class Paddle {
   }
 
   render(svg) {
+    if (this.upMove) {
+      this.up();
+    }
+		if (this.downMove) {
+      this.down();
+    }
+
     let paddle = document.createElementNS(SVG_NS, 'rect');
     paddle.setAttributeNS(null, 'width', this.width);
     paddle.setAttributeNS(null, 'height', this.height);
     paddle.setAttributeNS(null, 'x', this.x);
     paddle.setAttributeNS(null, 'y', this.y);
-    paddle.setAttributeNS(null, 'rx', '5');
-    paddle.setAttributeNS(null, 'ry', '5');
     paddle.setAttributeNS(null, 'fill', 'white');
     paddle.setAttributeNS(null, 'speed', this.speed);
     paddle.setAttributeNS(null, 'score', this.score);
