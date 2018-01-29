@@ -36,11 +36,11 @@ export default class Ball {
     
     if (hitLeft) {
       this.direction = -1;
-      this.goal(paddle1);
+      this.goal(paddle2);
     } 
     else if(hitRight) {
       this.directon = 1;
-      this.goal(paddle2);
+      this.goal(paddle1);
     }
     else if (hitTop || hitBottom) {
       this.vy = -this.vy;
